@@ -1,0 +1,25 @@
+import os, shutil
+path = "D:/Project folder learning/"
+list_file2 = os.listdir(path)
+print(list_file2)
+# ['Book1.xlsx', 'database minigame.docx', 'giới thiệu diễn giả Unlock The Path.docx', 'IU 6.jpg', 'IU 7.jpg', 'IU 8.jpg', 'IU 9.png', 'mẫu giới thiệu diễn giả RCS.docx', 'picture 1.jpg', 'picture 2.jpg', 'picture 3.jpg', 'RECAP.docx', 'You are the reason !!!!.txt']
+list_folder = ['Excel files','text file','image file']
+for emiu in range(0,3):
+    if not os.path.exists(path + list_folder[emiu]):
+        print(path + list_folder[emiu])
+        os.makedirs(path + list_folder[emiu])
+# D:/Project folder learning/Excel files
+# D:/Project folder learning/text file
+# D:/Project folder learning/image file
+for file in list_file2:
+    if '.xlsx' in file and not os.path.exists(path + 'Excel files/' + file):
+        shutil.move(path + file, path + 'Excel files/' + file)
+    elif '.docx' in file and not os.path.exists(path + 'text file/' + file):
+        shutil.move(path + file, path + 'text file/' + file)
+    elif '.txt' in file and not os.path.exists(path + 'text file/' + file):
+        shutil.move(path + file, path + 'text file/' + file)
+    elif '.jpg' in file and not os.path.exists(path + 'image file/' + file):
+        shutil.move(path + file, path + 'image file/' + file)
+    elif '.png' in file and not os.path.exists(path + 'image file/' + file):
+        shutil.move(path + file, path + 'image file/' + file)
+    else: print('There are files in this path that were not moved')
